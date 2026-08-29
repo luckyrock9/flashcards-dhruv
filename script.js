@@ -1,6 +1,5 @@
 
 
-console.log("test")
 
 function response(){
     console.log("Juneau");
