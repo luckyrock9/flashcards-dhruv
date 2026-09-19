@@ -7,7 +7,7 @@ let capitals = ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", 
 
 let set = document.getElementById("set");
 let columns = []
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 3; i++){
     let col = document.createElement("div");
     col.classList.add("colum")
     set.appendChild(col)
