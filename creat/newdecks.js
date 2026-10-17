@@ -21,7 +21,7 @@ plusbutton.addEventListener("click", function() {
     front.addEventListener("input", (event) => {
         let currentvalue = event.target.value;
         decktionary[newpair.id][0] = currentvalue
-    })
+    });
     let back = document.createElement("input");
     back.type = "text";
     back.classList.add("side");
@@ -29,9 +29,14 @@ plusbutton.addEventListener("click", function() {
         let currentvalue = event.target.value;
         decktionary[newpair.id][1] = currentvalue
     });
+    let cardcount = document.createElement("input");
+    cardcount.type = "button";
+    cardcount.classList.add("number");
+    cardcount.value = pairsmade;
     newpair.appendChild(deletepair);
     newpair.appendChild(front);
     newpair.appendChild(back);
+    newpair.appendChild(cardcount);
     let main = document.getElementById("main");
     main.appendChild(newpair);
     console.log("oar");
@@ -39,6 +44,11 @@ plusbutton.addEventListener("click", function() {
         delete decktionary[newpair.id];
         console.log(decktionary);
         deletepair.parentNode.remove();
-
     });
+    console.log(decktionary)
+});
+
+let savebutton = document.getElementById("savedeck");
+savebutton.addEventListener("click", function() {
+    localStorage.setItem("Customdeck", JSON.stringify(decktionary))
 });
