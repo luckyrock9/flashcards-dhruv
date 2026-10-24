@@ -8,7 +8,7 @@ console.log(queryString)
 let urlParams = new URLSearchParams(queryString);
 // PROBLEM IS HERE ^^^^^^
 console.log(urlParams)
-let deckname = urlParams.get("deckname");
+let deckname = "Customdeck"
 console.log(deckname)
 let flashcardarray = JSON.parse(localStorage.getItem(deckname));
 console.log(flashcardarray)
@@ -25,14 +25,14 @@ for (let i = 0; i < 3; i++){
     set.appendChild(col)
     columns.push(col)
 }
-
-for (let i = 0; i < whicharray[0].length; i++){
+console.log(states)
+for (let i = 0; i < flashcardarray[0].length; i++){
     let pair = document.createElement("div");
     pair.classList.add("pair");
     let card_a = document.createElement("p");
-    card_a.textContent = whicharray[0][i]; 
+    card_a.textContent = flashcardarray[0][i]; 
     let card_b = document.createElement("p");
-    card_b.textContent = whicharray[1][i];
+    card_b.textContent = flashcardarray[1][i];
     card_a.classList.add("carda");
     card_b.classList.add("cardb");
     pair.appendChild(card_a);

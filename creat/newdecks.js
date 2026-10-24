@@ -1,8 +1,9 @@
-
 let pairsmade = 0
 let decktionary = {
 
 }
+
+
 
 
 let plusbutton = document.getElementById("newcard");
@@ -47,8 +48,18 @@ plusbutton.addEventListener("click", function() {
     });
     console.log(decktionary)
 });
+let decktosave = [[],[]]
+//make this array same size as decktionary
 
 let savebutton = document.getElementById("savedeck");
 savebutton.addEventListener("click", function() {
-    localStorage.setItem("Customdeck", JSON.stringify(decktionary))
+    console.log(decktionary)
+    for (let i = 0; i < Object.keys(decktionary).length; i++){
+        for (let j = 0; j < 2; j++){
+            decktosave[i][j] = "hiij";//decktionary[j][i];
+            //figure out loop through dictionary values as if it was array^^
+            console.log("martin luther king jr")
+        }
+    }
+    localStorage.setItem("Customdeck", JSON.stringify(decktosave))
 });
