@@ -40,7 +40,6 @@ plusbutton.addEventListener("click", function() {
     newpair.appendChild(cardcount);
     let main = document.getElementById("main");
     main.appendChild(newpair);
-    console.log("oar");
     deletepair.addEventListener("click", function() {
         delete decktionary[newpair.id];
         console.log(decktionary);
@@ -49,17 +48,14 @@ plusbutton.addEventListener("click", function() {
     console.log(decktionary)
 });
 let decktosave = [[],[]]
-//make this array same size as decktionary
-
 let savebutton = document.getElementById("savedeck");
 savebutton.addEventListener("click", function() {
-    console.log(decktionary)
+    console.log(Object.keys(decktionary).length)
     for (let i = 0; i < Object.keys(decktionary).length; i++){
         for (let j = 0; j < 2; j++){
-            decktosave[i][j] = "hiij";//decktionary[j][i];
+            decktosave[j][i] = decktionary[Object.keys(decktionary)[i]][j];//decktionary[j][i];
             //figure out loop through dictionary values as if it was array^^
-            console.log("martin luther king jr")
-        }
+        console.log(decktosave)
     }
     localStorage.setItem("Customdeck", JSON.stringify(decktosave))
-});
+}});
