@@ -57,5 +57,6 @@ savebutton.addEventListener("click", function() {
             //figure out loop through dictionary values as if it was array^^
         console.log(decktosave)
     }
-    localStorage.setItem("Customdeck", JSON.stringify(decktosave))
+    let deckmane = document.getElementById("deck_name").value
+    localStorage.setItem(deckmane, JSON.stringify(decktosave))
 }});

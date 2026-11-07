@@ -3,7 +3,6 @@
     <head>
         <meta charset = "UTF-8">
         <link rel="stylesheet"  href="./styles.css">
-        <script src = "./script.js"></script>
         <title>FLASHCARD website</title>
     </head>
 
@@ -16,10 +15,12 @@
             <p>ALASKA</p>
             <input id="textbox" type="text"> 
         </div> -->
-        <div><h2>STUDY</h2>
-        <hr>
-        <input class="deck" type="button" value="STATES" onclick="window.location.href='./cards/deck.html'">
-        <input class="deck" type="button" value="CUSTOM" onclick="window.location.href='./cards/deck.html?deck_name=Customdeck'">
-    </div> 
+        <div id="deckplace">
+            <h2>STUDY</h2>
+            <hr>
+            <input class="deck" type="button" value="STATES" onclick="window.location.href='./cards/deck.html'">
+            <input class="deck" type="button" value="CUSTOM" onclick="window.location.href='./cards/deck.html?deck_name=Customdeck'">
+        </div>
+        <script src = "./script.js"></script> 
     </body>
 </html>
