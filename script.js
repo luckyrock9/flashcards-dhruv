@@ -6,21 +6,22 @@ for (i=0; i<= localStorage.length; i++){
     deckbouton.value = newkey;
     deckbouton.onclick = function(){
         if(deckbouton.value == newkey){
-            window.location.href='./cards/deck.html?deck_name=' + newkey;
+            window.location.href='./cards/study.html?deck_name=' + newkey;
         }
         else {
-            localStorage.removeItem(newkey);
-            deckbouton.remove();
+            window.location.href='./creat/newdeck.html?deck_name=' + newkey;
+            //localStorage.removeItem(newkey);
+            //deckbouton.remove();
         }
         
     }
     deckbouton.addEventListener("contextmenu", function(e){
         e.preventDefault();
-        if(deckbouton.value == "DELETE?"){
+        if(deckbouton.value == "EDIT?"){
             deckbouton.value = newkey;
         }
         else {
-            deckbouton.value = "DELETE?";
+            deckbouton.value = "EDIT?";
         }
     });
     console.log(newkey);
