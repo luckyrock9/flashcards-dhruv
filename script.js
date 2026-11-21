@@ -24,6 +24,5 @@ for (i=0; i<= localStorage.length; i++){
             deckbouton.value = "EDIT?";
         }
     });
-    console.log(newkey);
     document.getElementById("deckplace").appendChild(deckbouton);
 }

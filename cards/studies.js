@@ -6,18 +6,14 @@ let states = [
 ];
 
 let queryString = window.location.search;
-console.log(queryString)
 let urlParams = new URLSearchParams(queryString);
-console.log(urlParams)
 let deckname = urlParams.get("deck_name");
-console.log(deckname)
 let flashcardarray = JSON.parse(localStorage.getItem(deckname));
-console.log(flashcardarray)
+
 let whicharray = states
 if(flashcardarray !== null){
     whicharray = flashcardarray
 }
-console.log(whicharray)
 let set = document.getElementById("set");
 let columns = []
 for (let i = 0; i < 3; i++){
@@ -26,7 +22,6 @@ for (let i = 0; i < 3; i++){
     set.appendChild(col)
     columns.push(col)
 }
-console.log(states)
 for (let i = 0; i < whicharray[0].length; i++){
     let pair = document.createElement("div");
     pair.classList.add("pair");

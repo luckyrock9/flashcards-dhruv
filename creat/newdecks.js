@@ -11,20 +11,11 @@ let flashcardarray = JSON.parse(localStorage.getItem(deckname));
 if (deckname !== null){
     document.getElementById("deck_name").value = deckname;
     let decknomore = document.createElement("input");
+    console.log(decknomore)
     decknomore.type = "button";
-    decknomore.value = "DELETE?"
-    decknomore.addEventListener("click", function() {
-        //     if(deckbouton.value == "EDIT?"){
-        //         deckbouton.value = newkey;
-        //     }
-        //     else {
-        //         deckbouton.value = "EDIT?";
-        //     }
-        // });
-    decknomore.value = "CONFIRM DELETE"
-        delete decktionary[newpair.id];
-        console.log(decktionary);
-    });
+    decknomore.value = "DELETE?";
+    document.getElementById("mainbuttons").appendChild(decknomore)
+
     for (let i = 0; i < flashcardarray[0].length; i++){
         let newpair = document.createElement("div");
         pairsmade++;
@@ -64,14 +55,25 @@ if (deckname !== null){
         main.appendChild(newpair);
         deletepair.addEventListener("click", function() {
             delete decktionary[newpair.id];
-            console.log(decktionary);
             deletepair.parentNode.remove();
         });
-        console.log(decktionary);
-
-    }
+    };
+    decknomore.addEventListener("click", function() {
+        if (decknomore.value === "DELETE?") {
+            decknomore.value = "CONFIRM DELETE";
+            deleteTimeout = setTimeout(() => {
+                decknomore.value = "DELETE?";
+            }, 3000);
+        }
+        else {
+            localStorage.removeItem(deckname);
+            decktionary = {};
+            document.getElementById("main").innerHTML = "";
+            document.getElementById("deck_name").value = "";
+            decknomore.remove();
+        }
+    });
 };
-
 let plusbutton = document.getElementById("newcard");
 plusbutton.addEventListener("click", function() {
     let newpair = document.createElement("div");
@@ -108,20 +110,16 @@ plusbutton.addEventListener("click", function() {
     main.appendChild(newpair);
     deletepair.addEventListener("click", function() {
         delete decktionary[newpair.id];
-        console.log(decktionary);
         deletepair.parentNode.remove();
     });
-    console.log(decktionary);
 });
 let decktosave = [[],[]];
 let savebutton = document.getElementById("savedeck");
 savebutton.addEventListener("click", function() {
-    console.log(Object.keys(decktionary).length);
     for (let i = 0; i < Object.keys(decktionary).length; i++){
         for (let j = 0; j < 2; j++){
             decktosave[j][i] = decktionary[Object.keys(decktionary)[i]][j];
-        console.log(decktosave)
-    }
+        }
     let deckmane = document.getElementById("deck_name").value;
     localStorage.setItem(deckmane, JSON.stringify(decktosave));
 }});
